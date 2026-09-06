@@ -1,0 +1,37 @@
+{
+  "name": "gltechconcept",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site web GL TECH CONCEPT SRL — chauffage, climatisation, ventilation, électricité, sécurité, plomberie & sanitaires.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "gen:media": "node scripts/generate-placeholders.mjs && bash scripts/generate-videos.sh"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.46.1",
+    "clsx": "2.1.1",
+    "framer-motion": "11.11.17",
+    "gsap": "3.12.5",
+    "lenis": "1.1.18",
+    "next": "14.2.18",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwind-merge": "2.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.20",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.18",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.15",
+    "typescript": "5.6.3"
+  }
+}

@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   TOKENS — GL TECH CONCEPT
+   Direction : claire, minimale, technique.
+   Accent dynamique « énergie / air & eau » :
+   [data-accent="green"] -> chauffage · électricité · sécurité
+   [data-accent="blue"]  -> climatisation · ventilation · plomberie · sanitaires
+   ============================================================ */
+:root {
+  --accent: 14 158 110;        /* vert */
+  --accent-deep: 11 124 87;
+  --accent-soft: 233 247 241;
+  --header-h: 80px;
+}
+
+[data-accent='blue'] {
+  --accent: 28 109 208;
+  --accent-deep: 20 83 159;
+  --accent-soft: 234 242 252;
+}
+
+/* Inversion sur fond sombre (footer, bandeaux de contraste) */
+.on-dark {
+  --accent: 93 198 158;
+  --accent-deep: 14 158 110;
+  --accent-soft: 6 74 52;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background-color: #ffffff;
+    color-scheme: light;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-paper-0 font-sans text-ink-600 antialiased;
+    /* Verrou anti-débordement latéral. Il reste sur <body> et non sur <html> :
+       une valeur d'overflow non visible sur <html> ferait de la racine un bloc
+       conteneur et casserait le `position: fixed` de l'en-tête. */
+    overflow-x: hidden;
+    /* Place laissée à la barre d'action mobile fixe. */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  @media (max-width: 1023px) {
+    body { padding-bottom: calc(3.75rem + env(safe-area-inset-bottom)); }
+  }
+
+  /* Aucun média ne dépasse de son conteneur. */
+  img, video, svg, canvas { max-width: 100%; }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.16);
+    color: #0a1412;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+    font-weight: 600;
+    /* Chasse très légèrement resserrée : titres nets, jamais criards. */
+    font-variation-settings: 'wdth' 100;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #f1f5f4; }
+  ::-webkit-scrollbar-thumb {
+    background: #cfdad7;
+    border: 3px solid #f1f5f4;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--accent) / 0.7); }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-gutter;
+  }
+
+  .eyebrow {
+    @apply font-mono text-eyebrow uppercase text-ink-400;
+  }
+
+  .eyebrow-dot::before {
+    content: '';
+    @apply mr-3 inline-block h-[5px] w-[5px] translate-y-[-2px] rounded-full bg-accent align-middle;
+  }
+
+  .rule {
+    @apply h-px w-full bg-paper-200;
+  }
+
+  .card {
+    @apply relative overflow-hidden border border-paper-200 bg-white;
+  }
+
+  /* Lien souligné au survol, de gauche à droite */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-accent transition-transform duration-500 ease-power;
+  }
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  /* Traitement photo : léger, homogène, jamais spectaculaire.
+     Il unifie des photos de chantier prises dans des conditions différentes. */
+  .photo {
+    filter: saturate(0.92) contrast(1.02);
+  }
+  .photo-wrap {
+    position: relative;
+    isolation: isolate;
+    background: #eff4f2;
+  }
+  .photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(var(--accent) / 0.05), rgb(10 20 18 / 0.06));
+    pointer-events: none;
+  }
+
+  /* Trame technique très discrète (héros, carte) */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(10, 20, 18, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 20, 18, 0.045) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(75% 65% at 50% 45%, #000 10%, transparent 100%);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .fill-accent-var { fill: rgb(var(--accent)); }
+  .stroke-accent-var { stroke: rgb(var(--accent)); }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------
+   Entrées de page en CSS (et non en JS) : le contenu au-dessus de
+   la ligne de flottaison ne dépend jamais de l'hydratation ni du
+   rythme des animations JavaScript.
+   ------------------------------------------------------------ */
+@keyframes enterUp {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+.enter {
+  animation: enterUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+/* Révélation au défilement — même principe : rien n'est masqué tant que le
+   script n'a pas confirmé qu'il pourra le révéler (classe `js` sur <html>). */
+.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0s);
+  will-change: opacity, transform;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Tracé SVG animé (schémas techniques) */
+.draw-path {
+  stroke-dasharray: var(--len, 1200);
+  stroke-dashoffset: var(--len, 1200);
+}
+.draw-path.is-drawn {
+  animation: drawIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes drawIn {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ============================================================
+   ACCESSIBILITÉ — repli complet sans mouvement
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .draw-path { stroke-dashoffset: 0 !important; }
+  .enter { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .js .reveal { opacity: 1 !important; transform: none !important; }
+  video[data-ambient] { display: none; }
+}
