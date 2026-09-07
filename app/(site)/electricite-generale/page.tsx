@@ -36,10 +36,10 @@ export default function Page() {
         diagram={'elec'}
         beforeAfter={false}
         images={{
-          intro: '/media/gallery/coffret-electrique/04.jpg',
-          introAlt: 'Coffret électrique remplacé et mis en conformité',
-          second: '/media/gallery/coffret-electrique/11.jpg',
-          secondAlt: 'Repérage des circuits sur un tableau électrique',
+          intro: '/media/gallery/coffret-electrique/01.jpg',
+          introAlt: 'Coffret électrique neuf, circuits repérés et protections différentielles',
+          second: '/media/gallery/coffret-electrique/02.jpg',
+          secondAlt: 'Câblage d’un tableau divisionnaire lors d’une mise en conformité',
         }}
       />
     </>

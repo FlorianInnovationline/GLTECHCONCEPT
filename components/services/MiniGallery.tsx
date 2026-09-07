@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { imagesFor, categoryBySlug } from '@/lib/gallery';
+import { accentFor, categoryBySlug, countFor, imagesFor, labelFor } from '@/lib/gallery';
 
 /** Extrait de portfolio filtré sur les catégories du métier courant. */
 export default function MiniGallery({
@@ -28,7 +28,7 @@ export default function MiniGallery({
             <Reveal key={img.src} delay={(i % 4) * 0.06}>
               <Link
                 href={`/realisations?categorie=${img.category}`}
-                data-accent={img.accent}
+                data-accent={accentFor(img.category)}
                 className="group block"
               >
                 <div
@@ -46,7 +46,7 @@ export default function MiniGallery({
                   <span className="absolute inset-0 bg-ink-900/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-400 transition-colors group-hover:text-accent">
-                  {img.categoryLabel}
+                  {labelFor(img.category)}
                 </p>
               </Link>
             </Reveal>
@@ -63,7 +63,7 @@ export default function MiniGallery({
                 href={`/realisations?categorie=${c}`}
                 className="border border-paper-200 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-600 transition-colors hover:border-accent hover:text-accent"
               >
-                {cat.label} · {cat.count}
+                {cat.label} · {countFor(cat.slug)}
               </Link>
             );
           })}

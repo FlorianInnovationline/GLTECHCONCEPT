@@ -36,10 +36,10 @@ export default function Page() {
         diagram={'pac'}
         beforeAfter={false}
         images={{
-          intro: '/media/gallery/pac-air-eau-mitsubishi/01.jpg',
-          introAlt: 'Pompe à chaleur air/eau installée par GL TECH CONCEPT',
-          second: '/media/gallery/chauffage-sol/03.jpg',
-          secondAlt: 'Boucles de chauffage au sol posées avant chape',
+          intro: '/media/gallery/chauffage-pompe-a-chaleur/02.jpg',
+          introAlt: 'Unité extérieure de pompe à chaleur air/eau installée par GL TECH CONCEPT',
+          second: '/media/gallery/chauffage-sol/01.jpg',
+          secondAlt: 'Boucles de chauffage au sol posées et raccordées au collecteur',
         }}
       />
     </>

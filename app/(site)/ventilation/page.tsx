@@ -36,10 +36,10 @@ export default function Page() {
         diagram={'vmc'}
         beforeAfter={false}
         images={{
-          intro: '/media/sections/expertise-ventilation.jpg',
-          introAlt: 'Réseau de gaines de ventilation double flux',
-          second: '/media/sections/expertise-climatisation.jpg',
-          secondAlt: 'Remplacement des filtres d’une VMC',
+          intro: '/media/gallery/ventilation/01.jpg',
+          introAlt: 'Caisson de ventilation double flux et réseau de gaines isolées',
+          second: '/media/gallery/ventilation/02.jpg',
+          secondAlt: 'Entretien du réseau de gaines d’une ventilation double flux',
         }}
       />
     </>

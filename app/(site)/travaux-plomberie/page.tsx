@@ -36,10 +36,10 @@ export default function Page() {
         diagram={undefined}
         beforeAfter={false}
         images={{
-          intro: '/media/gallery/adoucisseur-eau/01.jpg',
+          intro: '/media/gallery/plomberie-traitement-eau/02.jpg',
           introAlt: 'Adoucisseur d’eau raccordé sur l’arrivée générale',
-          second: '/media/gallery/realisation-personnalisee/03.jpg',
-          secondAlt: 'Recherche de fuite par inspection caméra',
+          second: '/media/gallery/plomberie-traitement-eau/01.jpg',
+          secondAlt: 'Tuyauterie cuivre, vannes et manomètre sur une installation de chauffage',
         }}
       />
     </>

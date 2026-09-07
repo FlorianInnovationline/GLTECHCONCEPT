@@ -5,7 +5,7 @@ import SignOutButton from '@/components/admin/SignOutButton';
 import { getCurrentUser } from '@/lib/supabase/server';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { services } from '@/lib/services';
-import { galleryCategories, totalPhotos } from '@/lib/gallery';
+import { countFor, galleryCategories, totalPhotos } from '@/lib/gallery';
 import { site } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -120,7 +120,7 @@ export default async function AdminDashboard() {
               <li key={c.slug} className="border border-paper-200 px-4 py-3">
                 <p className="text-sm text-ink-700">{c.label}</p>
                 <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-400">
-                  {c.count} photos
+                  {countFor(c.slug)} photos
                 </p>
               </li>
             ))}

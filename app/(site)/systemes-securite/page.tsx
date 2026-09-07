@@ -36,10 +36,10 @@ export default function Page() {
         diagram={undefined}
         beforeAfter={false}
         images={{
-          intro: '/media/sections/expertise-securite.jpg',
-          introAlt: 'Centrale d’alarme installée en habitation',
-          second: '/media/gallery/coffret-electrique/08.jpg',
-          secondAlt: 'Contrôle périodique d’un système de sécurité',
+          intro: '/media/gallery/systemes-securite/01.jpg',
+          introAlt: 'Caméra de vidéosurveillance installée sous la corniche d’une habitation',
+          second: '/media/gallery/systemes-securite/02.jpg',
+          secondAlt: 'Installation d’un clavier d’alarme anti-intrusion',
         }}
       />
     </>

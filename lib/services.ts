@@ -90,7 +90,7 @@ export const services: Service[] = [
       { value: 'G1·G2', label: 'agréments gaz' },
       { value: '48h', label: 'délai d’intervention visé' },
     ],
-    galleryCategories: ['pac-air-eau-mitsubishi', 'chauffage-sol', 'coffret-electrique'],
+    galleryCategories: ['chauffage-pompe-a-chaleur', 'chauffage-sol'],
     faq: [
       {
         q: 'Chaudière à condensation ou pompe à chaleur ?',
@@ -236,7 +236,7 @@ export const services: Service[] = [
       { value: '24/7', label: 'renouvellement continu' },
       { value: '0', label: 'condensation persistante' },
     ],
-    galleryCategories: ['realisation-personnalisee'],
+    galleryCategories: ['ventilation'],
     faq: [
       {
         q: 'Simple flux ou double flux ?',
@@ -304,10 +304,10 @@ export const services: Service[] = [
     },
     stats: [
       { value: '100%', label: 'conforme RGIE' },
-      { value: '15', label: 'photos coffret électrique' },
+      { value: 'RGIE', label: 'contrôles accompagnés' },
       { value: '25', label: 'ans de métier' },
     ],
-    galleryCategories: ['coffret-electrique', 'realisation-personnalisee'],
+    galleryCategories: ['coffret-electrique'],
     faq: [
       {
         q: "Qu'implique une mise en conformité ?",
@@ -378,7 +378,7 @@ export const services: Service[] = [
       { value: 'Pro', label: 'résidentiel & tertiaire' },
       { value: 'Sur mesure', label: 'configuration' },
     ],
-    galleryCategories: ['coffret-electrique', 'realisation-personnalisee'],
+    galleryCategories: ['systemes-securite', 'coffret-electrique'],
     faq: [
       {
         q: 'Peut-on consulter les caméras à distance ?',
@@ -449,7 +449,7 @@ export const services: Service[] = [
       { value: 'Anti-calcaire', label: 'adoucisseurs dimensionnés' },
       { value: 'Rapide', label: 'intervention fuite' },
     ],
-    galleryCategories: ['realisation-personnalisee', 'adoucisseur-eau'],
+    galleryCategories: ['plomberie-traitement-eau'],
     faq: [
       {
         q: 'Un adoucisseur est-il vraiment utile ici ?',
@@ -516,11 +516,11 @@ export const services: Service[] = [
       ],
     },
     stats: [
-      { value: '31', label: 'photos de salles de bain' },
+      { value: 'Sur mesure', label: 'mobilier dessiné pour la pièce' },
       { value: 'PMR', label: 'adaptation accessibilité' },
       { value: 'Clé en main', label: 'chantier coordonné' },
     ],
-    galleryCategories: ['realisations-salle-de-bain', 'salle-de-bain', 'realisation-personnalisee'],
+    galleryCategories: ['salles-de-bain'],
     faq: [
       {
         q: 'Combien de temps dure une rénovation de salle de bain ?',

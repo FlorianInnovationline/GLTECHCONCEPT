@@ -36,10 +36,10 @@ export default function Page() {
         diagram={undefined}
         beforeAfter={true}
         images={{
-          intro: '/media/gallery/realisations-salle-de-bain/05.jpg',
-          introAlt: 'Salle de bain rénovée par GL TECH CONCEPT',
-          second: '/media/gallery/salle-de-bain/02.jpg',
-          secondAlt: 'Douche à l’italienne et mobilier sur mesure',
+          intro: '/media/gallery/salles-de-bain/01.jpg',
+          introAlt: 'Salle de bain rénovée avec douche à l’italienne et meuble suspendu',
+          second: '/media/gallery/salles-de-bain/02.jpg',
+          secondAlt: 'Pose d’un meuble de salle de bain sur mesure',
         }}
       />
     </>

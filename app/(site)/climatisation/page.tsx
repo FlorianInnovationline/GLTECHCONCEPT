@@ -37,9 +37,9 @@ export default function Page() {
         beforeAfter={false}
         images={{
           intro: '/media/gallery/climatisation/02.jpg',
-          introAlt: 'Unité intérieure de climatisation murale',
-          second: '/media/gallery/climatisation/06.jpg',
-          secondAlt: 'Unité extérieure de climatisation en entretien',
+          introAlt: 'Pose d’une unité intérieure de climatisation murale',
+          second: '/media/gallery/climatisation/01.jpg',
+          secondAlt: 'Séjour équipé d’une climatisation réversible',
         }}
       />
     </>

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import SectionHeading from '@/components/ui/SectionHeading';
 import ButtonLink from '@/components/ui/ButtonLink';
-import { galleryCategories, galleryImages } from '@/lib/gallery';
+import { countFor, galleryCategories, galleryImages } from '@/lib/gallery';
 
 /** Une image représentative par catégorie, présentée en bande déplaçable. */
 const featured = galleryCategories.map((cat) => ({
@@ -82,7 +82,7 @@ export default function FeaturedWork() {
                 </h3>
                 <p className="mt-2 text-sm text-ink-400">{cat.blurb}</p>
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                  {cat.count} photos
+                  {countFor(cat.slug)} photos
                 </p>
               </div>
             </Link>

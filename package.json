@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "gen:media": "node scripts/generate-placeholders.mjs && bash scripts/generate-videos.sh"
+    "gen:media": "bash scripts/generate-videos.sh"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

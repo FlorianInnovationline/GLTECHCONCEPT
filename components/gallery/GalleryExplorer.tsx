@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { galleryCategories, galleryImages, totalPhotos } from '@/lib/gallery';
+import { accentFor, countFor, galleryCategories, galleryImages, labelFor, totalPhotos } from '@/lib/gallery';
 import { cn } from '@/lib/utils';
 
 /**
@@ -65,7 +65,7 @@ export default function GalleryExplorer() {
             <FilterPill
               key={c.slug}
               label={c.label}
-              count={c.count}
+              count={countFor(c.slug)}
               active={active === c.slug}
               onClick={() => setFilter(c.slug)}
             />
@@ -87,7 +87,7 @@ export default function GalleryExplorer() {
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.45, delay: Math.min(i * 0.015, 0.3), ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setLightbox(i)}
-                data-accent={img.accent}
+                data-accent={accentFor(img.category)}
                 data-cursor="grow"
                 className={cn('group relative overflow-hidden', spanClass[img.span])}
                 aria-label={`Agrandir : ${img.alt}`}
@@ -105,7 +105,7 @@ export default function GalleryExplorer() {
                 <span className="absolute inset-0 bg-gradient-to-t from-white/85 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <span className="absolute inset-x-0 bottom-0 translate-y-3 p-4 text-left opacity-0 transition-all duration-500 ease-power group-hover:translate-y-0 group-hover:opacity-100">
                   <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
-                    {img.categoryLabel}
+                    {labelFor(img.category)}
                   </span>
                 </span>
               </motion.button>
@@ -129,7 +129,7 @@ export default function GalleryExplorer() {
           >
             <div className="flex items-center justify-between border-b border-paper-200 px-gutter py-5">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-600">
-                {filtered[lightbox].categoryLabel} — {lightbox + 1} / {filtered.length}
+                {labelFor(filtered[lightbox].category)} — {lightbox + 1} / {filtered.length}
               </p>
               <button
                 onClick={() => setLightbox(null)}
