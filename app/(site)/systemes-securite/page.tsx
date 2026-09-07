@@ -34,7 +34,6 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={undefined}
-        beforeAfter={false}
         images={{
           intro: '/media/gallery/systemes-securite/01.jpg',
           introAlt: 'Caméra de vidéosurveillance installée sous la corniche d’une habitation',

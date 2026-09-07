@@ -71,24 +71,36 @@ export default function ExpertiseBento() {
             </Link>
           </Reveal>
 
-          {/* Fiches secondaires */}
+          {/* Fiches secondaires : visuel en tête, puis le contenu */}
           {rest.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 0.06} className="h-full">
               <Link
                 href={`/${s.slug}`}
                 data-accent={s.accent}
-                className="group flex h-full flex-col justify-between gap-10 border border-paper-200 p-7 transition-all duration-500 hover:border-accent/50 hover:shadow-card"
+                className="group flex h-full flex-col overflow-hidden border border-paper-200 transition-all duration-500 hover:border-accent/50 hover:shadow-card"
               >
-                <div className="flex items-start justify-between">
-                  <span className="text-accent">
-                    <ServiceIcon name={s.icon} className="h-9 w-9" />
+                <div className="photo-wrap relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={image[s.slug]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="photo object-cover transition-transform duration-[1.4s] ease-power group-hover:scale-105"
+                  />
+                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center bg-white/90 text-accent backdrop-blur-sm">
+                    <ServiceIcon name={s.icon} className="h-5 w-5" />
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-ink-400">{s.index}</span>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold leading-tight">{s.title}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-ink-500">{s.teaser}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-accent">
+
+                <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+                  <div>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="font-display text-lg font-semibold leading-tight">{s.title}</h3>
+                      <span className="shrink-0 font-mono text-[10px] tracking-[0.2em] text-ink-400">{s.index}</span>
+                    </div>
+                    <p className="mt-2.5 text-sm leading-relaxed text-ink-500">{s.teaser}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-[13px] font-medium text-accent">
                     En savoir plus
                     <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 transition-transform duration-400 ease-power group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
                       <path d="M1 8h13M9 3l5 5-5 5" />

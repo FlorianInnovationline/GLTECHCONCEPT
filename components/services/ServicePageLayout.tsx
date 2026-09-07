@@ -19,12 +19,13 @@ import { marqueeItems } from '@/lib/site';
 export default function ServicePageLayout({
   service,
   diagram,
-  beforeAfter = false,
+  beforeAfter,
   images,
 }: {
   service: Service;
   diagram?: 'pac' | 'vmc' | 'elec';
-  beforeAfter?: boolean;
+  /** Configuration du comparateur avant/après ; omis, la section n'apparaît pas. */
+  beforeAfter?: React.ComponentProps<typeof BeforeAfter>;
   images: { intro: string; introAlt: string; second: string; secondAlt: string };
 }) {
   return (
@@ -50,7 +51,7 @@ export default function ServicePageLayout({
         accent={service.accent}
       />
 
-      {beforeAfter && <BeforeAfter />}
+      {beforeAfter && <BeforeAfter {...beforeAfter} />}
 
       <MiniGallery
         categories={service.galleryCategories}

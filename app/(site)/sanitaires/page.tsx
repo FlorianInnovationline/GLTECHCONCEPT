@@ -34,7 +34,7 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={undefined}
-        beforeAfter={true}
+        beforeAfter={{}}
         images={{
           intro: '/media/gallery/salles-de-bain/01.jpg',
           introAlt: 'Salle de bain rénovée avec douche à l’italienne et meuble suspendu',

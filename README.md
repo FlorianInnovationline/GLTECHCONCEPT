@@ -155,6 +155,12 @@ demande moins d'animations ou active l'économie de données.
 
 ---
 
+Le portfolio compte **37 photos réparties en 8 catégories** (4 à 6 par
+catégorie). Deux comparateurs avant/après sont en place : une salle de bain
+(page *Sanitaires*) et une chaufferie mazout remplacée (page *Chauffage*).
+Chaque paire est cadrée depuis le même point de vue — c'est ce qui rend la
+comparaison crédible ; conservez cette contrainte pour toute nouvelle paire.
+
 ### Catégories de réalisations
 
 Les catégories de `/realisations` décrivent le contenu réel des photos en place

@@ -34,7 +34,6 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={'elec'}
-        beforeAfter={false}
         images={{
           intro: '/media/gallery/coffret-electrique/01.jpg',
           introAlt: 'Coffret électrique neuf, circuits repérés et protections différentielles',

@@ -139,6 +139,18 @@ export const galleryImages: GalleryImage[] = [
     category: 'chauffage-pompe-a-chaleur',
     span: 'wide',
   },
+  {
+    src: '/media/gallery/chauffage-pompe-a-chaleur/05.jpg',
+    alt: 'Ancienne chaudière au mazout et sa cuve avant remplacement',
+    category: 'chauffage-pompe-a-chaleur',
+    span: 'square',
+  },
+  {
+    src: '/media/gallery/chauffage-pompe-a-chaleur/06.jpg',
+    alt: 'La même chaufferie après travaux : chaudière murale, ballon et tuyauterie cuivre neuve',
+    category: 'chauffage-pompe-a-chaleur',
+    span: 'square',
+  },
 
   // --- Électricité & domotique ---
   {
@@ -159,6 +171,18 @@ export const galleryImages: GalleryImage[] = [
     category: 'coffret-electrique',
     span: 'square',
   },
+  {
+    src: '/media/gallery/coffret-electrique/04.jpg',
+    alt: 'Borne de recharge pour véhicule électrique installée en façade',
+    category: 'coffret-electrique',
+    span: 'square',
+  },
+  {
+    src: '/media/gallery/coffret-electrique/05.jpg',
+    alt: 'Éclairage extérieur de façade mis en lumière à la tombée du jour',
+    category: 'coffret-electrique',
+    span: 'wide',
+  },
 
   // --- Climatisation ---
   {
@@ -172,6 +196,18 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Pose et mise à niveau d’une unité intérieure de climatisation murale',
     category: 'climatisation',
     span: 'square',
+  },
+  {
+    src: '/media/gallery/climatisation/03.jpg',
+    alt: 'Unité de climatisation gainable intégrée au faux plafond, avant fermeture',
+    category: 'climatisation',
+    span: 'tall',
+  },
+  {
+    src: '/media/gallery/climatisation/04.jpg',
+    alt: 'Groupes extérieurs de climatisation installés sur une toiture plate',
+    category: 'climatisation',
+    span: 'wide',
   },
 
   // --- Ventilation ---
@@ -187,6 +223,18 @@ export const galleryImages: GalleryImage[] = [
     category: 'ventilation',
     span: 'square',
   },
+  {
+    src: '/media/gallery/ventilation/03.jpg',
+    alt: 'Bouche d’extraction de ventilation posée au plafond d’une salle de bain',
+    category: 'ventilation',
+    span: 'square',
+  },
+  {
+    src: '/media/gallery/ventilation/04.jpg',
+    alt: 'Remplacement des filtres d’un échangeur de ventilation double flux',
+    category: 'ventilation',
+    span: 'tall',
+  },
 
   // --- Plomberie & traitement de l’eau ---
   {
@@ -200,6 +248,24 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Adoucisseur d’eau et bac à sel raccordés sur l’arrivée générale',
     category: 'plomberie-traitement-eau',
     span: 'tall',
+  },
+  {
+    src: '/media/gallery/plomberie-traitement-eau/03.jpg',
+    alt: 'Recherche de fuite par inspection caméra dans une canalisation',
+    category: 'plomberie-traitement-eau',
+    span: 'wide',
+  },
+  {
+    src: '/media/gallery/plomberie-traitement-eau/04.jpg',
+    alt: 'Débouchage d’une canalisation au furet, siphon démonté',
+    category: 'plomberie-traitement-eau',
+    span: 'square',
+  },
+  {
+    src: '/media/gallery/plomberie-traitement-eau/05.jpg',
+    alt: 'Boiler thermodynamique installé et raccordé dans un garage',
+    category: 'plomberie-traitement-eau',
+    span: 'square',
   },
 
   // --- Systèmes de sécurité ---
@@ -215,6 +281,18 @@ export const galleryImages: GalleryImage[] = [
     category: 'systemes-securite',
     span: 'square',
   },
+  {
+    src: '/media/gallery/systemes-securite/03.jpg',
+    alt: 'Raccordement de la centrale d’une alarme anti-intrusion',
+    category: 'systemes-securite',
+    span: 'tall',
+  },
+  {
+    src: '/media/gallery/systemes-securite/04.jpg',
+    alt: 'Pose d’un détecteur de fumée au plafond',
+    category: 'systemes-securite',
+    span: 'square',
+  },
 
   // --- Chauffage au sol ---
   {
@@ -222,6 +300,24 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Boucles de chauffage au sol posées et raccordées au collecteur, avant chape',
     category: 'chauffage-sol',
     span: 'wide',
+  },
+  {
+    src: '/media/gallery/chauffage-sol/02.jpg',
+    alt: 'Collecteur de chauffage au sol : débitmètres et vannes de réglage',
+    category: 'chauffage-sol',
+    span: 'tall',
+  },
+  {
+    src: '/media/gallery/chauffage-sol/03.jpg',
+    alt: 'Coulage de la chape sur les boucles de chauffage au sol',
+    category: 'chauffage-sol',
+    span: 'wide',
+  },
+  {
+    src: '/media/gallery/chauffage-sol/04.jpg',
+    alt: 'Thermostat d’ambiance commandant le chauffage au sol',
+    category: 'chauffage-sol',
+    span: 'square',
   },
 ];
 

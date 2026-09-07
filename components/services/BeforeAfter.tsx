@@ -14,11 +14,17 @@ export default function BeforeAfter({
   after = '/media/sections/apres-travaux.jpg',
   beforeAlt = 'Salle de bain avant rénovation : baignoire, lavabo sur colonne et carrelage d’origine',
   afterAlt = 'La même salle de bain après rénovation : douche de plain-pied et meuble suspendu',
+  title = 'La même pièce, deux semaines plus tard',
+  intro = 'Déplacez la poignée pour comparer : même pièce, même fenêtre, même radiateur — seule la salle de bain a changé.',
+  accent = 'blue',
 }: {
   before?: string;
   after?: string;
   beforeAlt?: string;
   afterAlt?: string;
+  title?: string;
+  intro?: string;
+  accent?: 'green' | 'blue';
 }) {
   const [pos, setPos] = useState(50);
   const wrap = useRef<HTMLDivElement>(null);
@@ -36,8 +42,8 @@ export default function BeforeAfter({
       <div className="shell">
         <SectionHeading
           eyebrow="Avant / après"
-          title="La même pièce, deux semaines plus tard"
-          intro="Déplacez la poignée pour comparer : même pièce, même fenêtre, même radiateur — seule la salle de bain a changé."
+          title={title}
+          intro={intro}
         />
 
         <div
@@ -53,7 +59,7 @@ export default function BeforeAfter({
           onTouchStart={(e) => setFromClientX(e.touches[0].clientX)}
           onTouchMove={(e) => setFromClientX(e.touches[0].clientX)}
         >
-          <div className="photo-wrap absolute inset-0" data-accent="blue">
+          <div className="photo-wrap absolute inset-0" data-accent={accent}>
             <Image src={after} alt={afterAlt} fill sizes="100vw" className="photo object-cover" />
           </div>
 
@@ -64,7 +70,7 @@ export default function BeforeAfter({
             className="absolute inset-0"
             style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
           >
-            <div className="photo-wrap absolute inset-0" data-accent="green">
+            <div className="photo-wrap absolute inset-0" data-accent={accent}>
               <Image src={before} alt={beforeAlt} fill sizes="100vw" className="photo object-cover" />
             </div>
             <span className="absolute left-5 top-5 border border-paper-300 bg-white/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-900 backdrop-blur">

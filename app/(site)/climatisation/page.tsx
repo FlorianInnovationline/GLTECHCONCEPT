@@ -34,7 +34,6 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={undefined}
-        beforeAfter={false}
         images={{
           intro: '/media/gallery/climatisation/02.jpg',
           introAlt: 'Pose d’une unité intérieure de climatisation murale',

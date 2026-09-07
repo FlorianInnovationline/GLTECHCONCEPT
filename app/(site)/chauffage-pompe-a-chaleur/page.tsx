@@ -34,7 +34,17 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={'pac'}
-        beforeAfter={false}
+        beforeAfter={{
+          before: '/media/sections/avant-chauffage.jpg',
+          after: '/media/sections/apres-chauffage.jpg',
+          beforeAlt: 'Chaufferie avant travaux : ancienne chaudière au mazout et cuve d’origine',
+          afterAlt:
+            'La même chaufferie après travaux : chaudière murale à condensation, ballon et tuyauterie cuivre neuve',
+          title: 'La même chaufferie, une semaine plus tard',
+          intro:
+            'Déplacez la poignée pour comparer : même local, même fenêtre, même radiateur. L’ancienne chaudière au mazout et sa cuve ont laissé la place à une installation compacte et bien plus sobre.',
+          accent: 'green',
+        }}
         images={{
           intro: '/media/gallery/chauffage-pompe-a-chaleur/02.jpg',
           introAlt: 'Unité extérieure de pompe à chaleur air/eau installée par GL TECH CONCEPT',

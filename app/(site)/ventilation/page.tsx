@@ -34,7 +34,6 @@ export default function Page() {
       <ServicePageLayout
         service={service}
         diagram={'vmc'}
-        beforeAfter={false}
         images={{
           intro: '/media/gallery/ventilation/01.jpg',
           introAlt: 'Caisson de ventilation double flux et réseau de gaines isolées',

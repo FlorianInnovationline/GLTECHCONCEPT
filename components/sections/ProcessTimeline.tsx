@@ -10,30 +10,40 @@ import SectionHeading from '@/components/ui/SectionHeading';
 const steps = [
   {
     n: '01',
+    image: '/media/sections/process-01.jpg',
+    imageAlt: 'Premier échange autour du projet, plan de l’habitation sur la table',
     title: 'Contact',
     text: 'Un appel ou un message suffit. Nous prenons le temps de comprendre la situation, l’urgence et le contexte du bâtiment.',
     detail: 'Par téléphone au 071 14 34 47 ou via le formulaire.',
   },
   {
     n: '02',
+    image: '/media/sections/process-02.jpg',
+    imageAlt: 'Relevé thermique de l’installation existante avant devis',
     title: 'Diagnostic',
     text: 'Visite sur place : relevé des installations existantes, évaluation des besoins réels en confort thermique, contraintes techniques.',
     detail: 'Sans engagement.',
   },
   {
     n: '03',
+    image: '/media/sections/process-03.jpg',
+    imageAlt: 'Rédaction du devis détaillé avec le client',
     title: 'Devis',
     text: 'Une proposition claire et détaillée : matériel, main-d’œuvre, délais. Pas de ligne floue, pas de surprise en fin de chantier.',
     detail: 'Devis personnalisé et gratuit.',
   },
   {
     n: '04',
+    image: '/media/sections/process-04.jpg',
+    imageAlt: 'Chantier en cours, sols protégés et outillage en place',
     title: 'Intervention',
     text: 'Installation réalisée par nos techniciens agréés, dans le respect des normes de sécurité et d’efficacité énergétique en vigueur.',
     detail: 'Chantier propre, planning tenu.',
   },
   {
     n: '05',
+    image: '/media/sections/process-05.jpg',
+    imageAlt: 'Entretien annuel d’une chaudière à condensation',
     title: 'Entretien',
     text: 'Nous restons votre interlocuteur : entretien annuel, ramonage, contrôles périodiques et dépannage en cas de panne.',
     detail: 'Contrats d’entretien sur mesure.',
@@ -92,26 +102,31 @@ export default function ProcessTimeline() {
             className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 lg:overflow-visible lg:pb-0"
             style={{ scrollbarWidth: 'none' }}
           >
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <article
                 key={s.n}
-                className="group relative flex min-h-[22rem] w-[80vw] shrink-0 snap-start flex-col justify-between overflow-hidden border border-paper-200 bg-paper-50 p-8 transition-colors duration-500 hover:border-accent/50 sm:w-[24rem] lg:w-[26rem]"
+                className="group flex w-[78vw] shrink-0 snap-start flex-col overflow-hidden border border-paper-200 bg-white transition-colors duration-500 hover:border-accent/50 sm:w-[23rem] lg:w-[25rem]"
               >
-                {i === 0 && (
-                  <div className="photo-wrap absolute inset-0 opacity-25">
-                    <Image src="/media/sections/process.jpg" alt="" fill sizes="30vw" className="photo object-cover" />
-                  </div>
-                )}
-                <div className="relative flex items-baseline justify-between">
-                  <span className="font-display text-[clamp(3rem,5vw,4.6rem)] leading-none text-paper-300 transition-colors duration-500 group-hover:text-accent/35">
-                    {s.n}
-                  </span>
-                  <span className="h-px w-14 bg-accent" />
+                <div className="photo-wrap relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={s.image}
+                    alt={s.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 78vw, 25rem"
+                    className="photo object-cover transition-transform duration-[1.4s] ease-power group-hover:scale-105"
+                  />
                 </div>
-                <div className="relative">
-                  <h3 className="text-display-sm text-ink-900">{s.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-ink-600">{s.text}</p>
-                  <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">{s.detail}</p>
+
+                <div className="flex flex-1 flex-col justify-between gap-6 p-7">
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-accent">{s.n}</span>
+                    <span className="h-px w-12 bg-paper-300" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-semibold">{s.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-500">{s.text}</p>
+                    <p className="mt-4 text-xs text-ink-400">{s.detail}</p>
+                  </div>
                 </div>
               </article>
             ))}
