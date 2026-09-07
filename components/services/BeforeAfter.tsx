@@ -12,8 +12,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 export default function BeforeAfter({
   before = '/media/sections/avant-travaux.jpg',
   after = '/media/sections/apres-travaux.jpg',
-  beforeAlt = 'Salle de bain avant rénovation',
-  afterAlt = 'Salle de bain après rénovation par GL TECH CONCEPT',
+  beforeAlt = 'Salle de bain avant rénovation : baignoire, lavabo sur colonne et carrelage d’origine',
+  afterAlt = 'La même salle de bain après rénovation : douche de plain-pied et meuble suspendu',
 }: {
   before?: string;
   after?: string;
@@ -37,7 +37,7 @@ export default function BeforeAfter({
         <SectionHeading
           eyebrow="Avant / après"
           title="La même pièce, deux semaines plus tard"
-          intro="Déplacez la poignée pour comparer. ⚠️ Visuels de démonstration — à remplacer par un vrai chantier photographié avant et après."
+          intro="Déplacez la poignée pour comparer : même pièce, même fenêtre, même radiateur — seule la salle de bain a changé."
         />
 
         <div

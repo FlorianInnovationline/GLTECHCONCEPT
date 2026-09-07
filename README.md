@@ -17,7 +17,7 @@ pastille en bas à droite de l'écran les rappelle (`components/layout/PendingAs
 |---|---|---|
 | Adresse e-mail exacte | `lib/site.ts` → `email`, puis `emailConfirmed: true` | **Placeholder** |
 | Horaires d'ouverture | `lib/site.ts` → `hours`, puis `hoursConfirmed: true` | **Provisoires** |
-| Photos et vidéos réelles | `public/media/**` | **Visuels générés** |
+| Photos réelles des chantiers du client | `public/media/**` | **Photos génériques en place** |
 | Logo vectoriel | `components/visuals/Logo.tsx`, `public/favicon.svg` | **Provisoire** |
 | Témoignages clients | `components/sections/Testimonials.tsx` | **`[TEMOIGNAGE À REMPLACER]`** |
 | Liens Facebook / TrustUp | `lib/site.ts` → `social` | **Génériques** |
@@ -45,7 +45,7 @@ Autres commandes :
 npm run build       # build de production
 npm run typecheck   # vérification TypeScript
 npm run lint
-npm run gen:media   # régénère les visuels et vidéos de remplacement (nécessite ffmpeg)
+npm run gen:media   # régénère les boucles vidéo à partir des photos en place (nécessite ffmpeg)
 ```
 
 > ⚠️ Ne lancez pas `npm run build` pendant que `npm run dev` tourne : les deux
@@ -78,7 +78,7 @@ components/
 lib/
   site.ts       NAP, agréments, zones — source unique de vérité
   services.ts   les 7 métiers : contenus, SEO, FAQ, visuels
-  gallery.ts    catégories et photos de réalisations
+  gallery.ts    catégories et photos de réalisations (texte alternatif compris)
   seo.ts        métadonnées et JSON-LD
   supabase/     clients navigateur et serveur
 scripts/        génération des visuels de remplacement (PNG puis JPEG/MP4)
@@ -122,12 +122,22 @@ Toutes respectent `prefers-reduced-motion` (repli complet dans `globals.css`).
 
 ## Médias
 
-`public/media/` contient des **visuels de remplacement générés**
-(`scripts/generate-placeholders.mjs` puis `scripts/generate-videos.sh`) :
-images abstraites claires et boucles vidéo silencieuses sans raccord.
+`public/media/` contient les photos en place et les boucles vidéo qui en sont
+dérivées.
 
-Pour passer aux vraies photos : remplacez les fichiers **en conservant les
-mêmes noms** — aucun code n'a besoin d'être modifié.
+Les **boucles d'ambiance sont générées à partir des images d'ouverture** par
+`scripts/generate-videos.sh` : un lent mouvement d'appareil dont les expressions
+sont périodiques sur la durée du clip, si bien que la dernière image raccorde
+exactement la première. Ni grain ni filtre — sur de vraies photos, la sobriété
+passe mieux.
+
+Pour changer une photo : remplacez le fichier **en conservant son nom**, puis
+relancez `npm run gen:media` si c'est une image d'ouverture (pour que sa vidéo
+suive). Aucun code n'a besoin d'être modifié.
+
+⚠️ Les photos actuelles illustrent correctement chaque métier mais ne sont pas
+les chantiers du client. Les remplacer par ses propres réalisations reste le
+premier levier de crédibilité du site.
 
 ```
 public/media/
@@ -135,7 +145,7 @@ public/media/
   hero-*.mp4              boucles d'ambiance des heros
   sections/*.jpg          visuels de section
   section-*.mp4           boucles d'ambiance de section
-  gallery/<catégorie>/NN.jpg   réalisations (les compteurs sont dans lib/gallery.ts)
+  gallery/<catégorie>/NN.jpg   réalisations (décrites une à une dans lib/gallery.ts)
   og/og-default.jpg       image de partage social
 ```
 
@@ -144,6 +154,15 @@ l'approche du viewport, et remplacées par leur image fixe si l'utilisateur
 demande moins d'animations ou active l'économie de données.
 
 ---
+
+### Catégories de réalisations
+
+Les catégories de `/realisations` décrivent le contenu réel des photos en place
+(salles de bain, chauffage & pompes à chaleur, électricité & domotique…). Le site
+d'origine utilisait les intitulés des chantiers du client — par exemple
+« PAC air/eau MITSUBISHI ELECTRIC » ou « Réalisation personnalisée sur demande ».
+Quand ses photos arriveront, rétablissez ses intitulés : **`lib/gallery.ts` est
+le seul fichier à modifier**, les compteurs et les filtres se recalculent seuls.
 
 ## Formulaire de contact
 
